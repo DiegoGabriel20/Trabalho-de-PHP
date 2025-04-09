@@ -1,21 +1,22 @@
 <?php
-
 session_start(); // Inicia a sessão
 
-
-$usuario = $_POST['usuario'];
-$senha = $_POST['senha'];
-
-
+// Simulando um "banco de dados" com hash da senha
 $usuario_correto = 'admin';
-$senha_correta = '1234';
+// A senha '1234' foi criptografada com password_hash()
+$senha_hash = '$2y$10$RrKzD1m2NIGmURDjrsz3ieRExqlDE6dtvZ/b.CCBvmXKxVAtT1J.2'; // senha: 1234
 
-if ($usuario === $usuario_correto && $senha === $senha_correta) {
+// Pegando os dados do formulário
+$usuario = $_POST['usuario'] ?? '';
+$senha = $_POST['senha'] ?? '';
+
+// Verifica se o usuário é correto e se a senha confere
+if ($usuario === $usuario_correto && password_verify($senha, $senha_hash)) {
     $_SESSION['usuario'] = $usuario; // Salva o nome do usuário na sessão
     echo "<h2>Bem-vindo, $usuario!</h2>";
     echo "<p><a href='menu.php'>Ir para o menu</a></p>";
 } else {
-    echo '<p style="color: red;"<h2>Login inválido!</h2>"</p>';
+    echo '<p style="color: red;"><strong>Login inválido!</strong></p>';
     echo "<p><a href='login.php'>Tentar novamente</a></p>";
 }
 ?>
