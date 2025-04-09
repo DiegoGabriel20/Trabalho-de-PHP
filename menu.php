@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,8 +8,8 @@
 </head>
 <body>
 
-    <!-- Navbar Bootstrap -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!-- Navbar Bootstrap -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Receitas Fitness</a>
 
@@ -32,14 +33,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="sobre.php">Sobre</a>
                 </li>
-            </ul>
-            <?php if (isset($_SESSION['usuario'])): ?>
+
+                <!-- Só mostra se o usuário estiver logado -->
+                <?php if (isset($_SESSION['usuario'])): ?>
                     <li class="nav-item">
                         <a class="nav-link text-warning" href="cadastro_receita.php">Cadastrar Receita</a>
                     </li>
                 <?php endif; ?>
+            </ul>
 
-            <!-- Formulário de filtro -->
+            <!-- Formulário de filtro alinhado à direita -->
             <form class="d-flex" role="search" action="menu.php" method="GET">
                 <input class="form-control me-2" type="search" name="filtro" placeholder="Buscar receita..." aria-label="Buscar">
                 <button class="btn btn-outline-success" type="submit">Filtrar</button>
@@ -51,21 +54,18 @@
 <!-- Conteúdo da página -->
 <div class="container mt-4">
     <?php
+        date_default_timezone_set('America/Sao_Paulo');
+        $hora = date('H');
 
-    session_start();
-        
-        date_default_timezone_set('America/Sao_Paulo'); 
-        
-        $hora = date('H'); 
-        
         if ($hora >= 5 && $hora < 12) {
-            echo '<p style="color: Blue; font-weight: bold;"> "<h1>Bom dia! Bem vindo(a)<h1/> <h2> Receitas Fitness!<h2/></p>';
+            echo '<h1 style="color: blue; font-weight: bold;">Bom dia! Bem-vindo(a)</h1>';
         } elseif ($hora >= 12 && $hora < 18) {
-            echo '<p style="color: Blue; font-weight: bold;"<h1>Boa tarde! Bem vindo(a)<h1/> <h2> Receitas Fitness!<h2/></p>';
+            echo '<h1 style="color: blue; font-weight: bold;">Boa tarde! Bem-vindo(a)</h1>';
         } else {
-            echo '<p style="color: Blue; font-weight: bold;"<h1>Boa noite! Bem vindo(a)<h1/> <h2> Receitas Fitness!<h2/></p>';
+            echo '<h1 style="color: blue; font-weight: bold;">Boa noite! Bem-vindo(a)</h1>';
         }
-        
+
+        echo '<h2>Receitas Fitness!</h2>';
     ?>
 </div>
 
