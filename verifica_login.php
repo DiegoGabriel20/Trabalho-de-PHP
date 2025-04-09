@@ -4,7 +4,7 @@ session_start(); // Inicia a sessão
 // Simulando um "banco de dados" com hash da senha
 $usuario_correto = 'admin';
 // A senha '1234' foi criptografada com password_hash()
-$senha_hash = '$2y$10$RrKzD1m2NIGmURDjrsz3ieRExqlDE6dtvZ/b.CCBvmXKxVAtT1J.2'; // senha: 1234
+$senha_hash = '$2y$10$pKK1GeM.ir6ZoyrvexIMhuz40P8FghCJadbBgm/vONhzeFIkkobL.'; // senha: 1234
 
 // Pegando os dados do formulário
 $usuario = $_POST['usuario'] ?? '';
