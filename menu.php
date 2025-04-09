@@ -43,21 +43,15 @@
         $hora = date('H'); 
         
         if ($hora >= 5 && $hora < 12) {
-            echo "<h1>Bom dia! Bem vindo(a)<h1/> <h2> <br>Receitas Fitnnes!<h2/>";
+            echo '<p style="color: Blue; font-weight: bold;"> "<h1>Bom dia! Bem vindo(a)<h1/> <h2> Receitas Fitnnes!<h2/></p>';
         } elseif ($hora >= 12 && $hora < 18) {
-            echo "<h1>Boa tarde! Bem vindo(a)<h1/> <h2> <br>Receitas Fitnnes!<h2/>";
+            echo '<p style="color: Blue; font-weight: bold;"<h1>Boa tarde! Bem vindo(a)<h1/> <h2> Receitas Fitnnes!<h2/></p>';
         } else {
-            echo "<h2>Boa noite! Bem vindo(a) <br>Receitas Fitnnes!<h2/>";
+            echo '<p style="color: Blue; font-weight: bold;"<h1>Boa noite! Bem vindo(a)<h1/> <h2> Receitas Fitnnes!<h2/></p>';
         }
         
     ?>
 </div>
-
-
-
-
-
-
 
 <!-- Script do Bootstrap (JS + Popper) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
