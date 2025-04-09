@@ -46,6 +46,8 @@
 <!-- Conteúdo da página -->
 <div class="container mt-4">
     <?php
+
+    session_start();
         
         date_default_timezone_set('America/Sao_Paulo'); 
         
