@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php session_start(); 
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -24,9 +26,11 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="menu.php">Início</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.php">Login</a>
-                </li>
+                <?php if (!isset($_SESSION['usuario'])): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php">Login</a>
+                    </li>
+                <?php endif; ?>
                 <li class="nav-item">
                     <a class="nav-link" href="contato.php">Contato</a>
                 </li>
@@ -58,14 +62,14 @@
         $hora = date('H');
 
         if ($hora >= 5 && $hora < 12) {
-            echo '<h1 style="color: blue; font-weight: bold;">Bom dia! Bem-vindo(a)</h1>';
+            echo '<h4 style="color: blue; font-weight: bold;">Bom dia! Bem-vindo(a)</h4>';
         } elseif ($hora >= 12 && $hora < 18) {
-            echo '<h1 style="color: blue; font-weight: bold;">Boa tarde! Bem-vindo(a)</h1>';
+            echo '<h4 style="color: blue; font-weight: bold;">Boa tarde! Bem-vindo(a)</h4>';
         } else {
-            echo '<h1 style="color: blue; font-weight: bold;">Boa noite! Bem-vindo(a)</h1>';
+            echo '<h4 style="color: blue; font-weight: bold;">Boa noite! Bem-vindo(a)</h4>';
         }
 
-        echo '<h2>Receitas Fitness!</h2>';
+        echo '<h1>Receitas Fitness!</h1>';
     ?>
 </div>
 
