@@ -34,6 +34,15 @@
     </div>
 </nav>
 
+<!-- Conteúdo da página -->
+<div class="container mt-4">
+    <?php
+        echo "<h1>Bem-vindo <br> Catálogo de Receitas Fitness!</h1>";
+    ?>
+</div>
+
+
+
 
 
 
