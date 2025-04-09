@@ -1,15 +1,12 @@
 <?php 
 session_start();
 
-
 if (!isset($_SESSION["receitas"])) {
     $_SESSION["receitas"] = [];
 }
 
-
 $filtro = $_GET["filtro"] ?? "";
 $receitas = $_SESSION["receitas"];
-
 
 if ($filtro !== "") {
     $receitas = array_filter($receitas, function($r) use ($filtro) {
@@ -27,7 +24,6 @@ if ($filtro !== "") {
 </head>
 <body class="bg-light">
 
-<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Receitas Fitness</a>
@@ -43,25 +39,25 @@ if ($filtro !== "") {
                 <li class="nav-item">
                     <a class="nav-link active" href="menu.php">Início</a>
                 </li>
-                <?php if (!isset($_SESSION['usuario'])): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.php">Login</a>
-                    </li>
-                <?php endif; ?>
+                <?php 
+                if (!isset($_SESSION['usuario'])) {
+                    echo '<li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>';
+                }
+                ?>
                 <li class="nav-item">
                     <a class="nav-link" href="contato.php">Contato</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="sobre.php">Sobre</a>
                 </li>
-                <?php if (isset($_SESSION['usuario'])): ?>
-                    <li class="nav-item">
-                        <a class="nav-link text-warning" href="cadastro_receita.php">Cadastrar Receita</a>
-                    </li>
-                <?php endif; ?>
+                <?php 
+                if (isset($_SESSION['usuario'])) {
+                    echo '<li class="nav-item"><a class="nav-link text-warning" href="cadastro_receita.php">Cadastrar Receita</a></li>';
+                }
+                ?>
             </ul>
 
-            <!-- Filtro de busca -->
+            <!-- Filtro -->
             <form class="d-flex" role="search" method="GET">
                 <input class="form-control me-2" type="search" name="filtro" placeholder="Buscar receita..." value="<?= htmlspecialchars($filtro) ?>">
                 <button class="btn btn-outline-success" type="submit">Filtrar</button>
@@ -70,7 +66,6 @@ if ($filtro !== "") {
     </div>
 </nav>
 
-<!-- Saudação com base no horário -->
 <div class="container mt-4">
     <?php
         date_default_timezone_set('America/Sao_Paulo');
@@ -86,25 +81,26 @@ if ($filtro !== "") {
     ?>
 </div>
 
-<!-- Cards de receitas -->
 <div class="container mt-4">
     <div class="row">
-        <?php if (empty($receitas)): ?>
-            <p class="text-muted">Nenhuma receita cadastrada no momento.</p>
-        <?php else: ?>
-            <?php foreach ($receitas as $r): ?>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 shadow-sm">
-                        <img src="<?= htmlspecialchars($r["imagem"]) ?>" class="card-img-top" alt="Imagem da Receita">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= htmlspecialchars($r["titulo"]) ?></h5>
-                            <p class="card-text">Categoria: <?= htmlspecialchars($r["categoria"]) ?></p>
-                            <a href="detalhes.php?id=<?= urlencode($r["id"]) ?>" class="btn btn-primary">Ver mais</a>
-                        </div>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        <?php endif; ?>
+        <?php 
+        if (empty($receitas)) {
+            echo '<p class="text-muted">Nenhuma receita cadastrada no momento.</p>';
+        } else {
+            foreach ($receitas as $r) {
+                echo '<div class="col-md-4 mb-4">';
+                echo '  <div class="card h-100 shadow-sm">';
+                echo '      <img src="' . htmlspecialchars($r["imagem"]) . '" class="card-img-top" alt="Imagem da Receita">';
+                echo '      <div class="card-body">';
+                echo '          <h5 class="card-title">' . htmlspecialchars($r["titulo"]) . '</h5>';
+                echo '          <p class="card-text">Categoria: ' . htmlspecialchars($r["categoria"]) . '</p>';
+                echo '          <a href="detalhes.php?id=' . urlencode($r["id"]) . '" class="btn btn-primary">Ver mais</a>';
+                echo '      </div>';
+                echo '  </div>';
+                echo '</div>';
+            }
+        }
+        ?>
     </div>
 </div>
 
