@@ -33,6 +33,11 @@
                     <a class="nav-link" href="sobre.php">Sobre</a>
                 </li>
             </ul>
+            <?php if (isset($_SESSION['usuario'])): ?>
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" href="cadastro_receita.php">Cadastrar Receita</a>
+                    </li>
+                <?php endif; ?>
 
             <!-- Formulário de filtro -->
             <form class="d-flex" role="search" action="menu.php" method="GET">
