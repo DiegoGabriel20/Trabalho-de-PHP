@@ -52,11 +52,11 @@
         $hora = date('H'); 
         
         if ($hora >= 5 && $hora < 12) {
-            echo '<p style="color: Blue; font-weight: bold;"> "<h1>Bom dia! Bem vindo(a)<h1/> <h2> Receitas Fitnnes!<h2/></p>';
+            echo '<p style="color: Blue; font-weight: bold;"> "<h1>Bom dia! Bem vindo(a)<h1/> <h2> Receitas Fitness!<h2/></p>';
         } elseif ($hora >= 12 && $hora < 18) {
-            echo '<p style="color: Blue; font-weight: bold;"<h1>Boa tarde! Bem vindo(a)<h1/> <h2> Receitas Fitnnes!<h2/></p>';
+            echo '<p style="color: Blue; font-weight: bold;"<h1>Boa tarde! Bem vindo(a)<h1/> <h2> Receitas Fitness!<h2/></p>';
         } else {
-            echo '<p style="color: Blue; font-weight: bold;"<h1>Boa noite! Bem vindo(a)<h1/> <h2> Receitas Fitnnes!<h2/></p>';
+            echo '<p style="color: Blue; font-weight: bold;"<h1>Boa noite! Bem vindo(a)<h1/> <h2> Receitas Fitness!<h2/></p>';
         }
         
     ?>
