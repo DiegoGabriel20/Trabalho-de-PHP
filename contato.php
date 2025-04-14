@@ -20,7 +20,7 @@
 <div class="container mt-5">
     <div class="card shadow p-4">
         <h3 class="mb-4 text-primary">Entre em Contato</h3>
-        <p><strong>📞 Telefone:</strong> (11) 91234-5678</p>
+        <p><strong>📞 Telefone:</strong> (00) 9999-0102</p>
         <p><strong>📧 E-mail:</strong> diego.contato@email.com</p>
         <p><strong>💻 GitHub:</strong> <a href="https://github.com/DiegoGabriel20" target="_blank">github.com/DiegoGabriel20</a></p>
     </div>

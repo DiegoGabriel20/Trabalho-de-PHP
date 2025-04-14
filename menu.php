@@ -26,7 +26,7 @@ if ($filtro !== "") {
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Receitas Fitness</a>
+        <a class="navbar-brand" href="#">Receitas Fitness🥕🍆🥦</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
@@ -47,9 +47,7 @@ if ($filtro !== "") {
                 <li class="nav-item">
                     <a class="nav-link" href="contato.php">Contato</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="sobre.php">Sobre</a>
-                </li>
+                
                 <?php 
                 if (isset($_SESSION['usuario'])) {
                     echo '<li class="nav-item"><a class="nav-link text-warning" href="cadastro_receita.php">Cadastrar Receita</a></li>';
@@ -72,11 +70,11 @@ if ($filtro !== "") {
         $hora = date('H');
 
         if ($hora >= 5 && $hora < 12) {
-            echo '<h4 style="color: blue; font-weight: bold;">Bom dia! Bem-vindo(a)</h4>';
+            echo '<h4 style="color: blue; font-weight: bold;">Bom dia! Bem-vindo(a)☀️</h4>';
         } elseif ($hora >= 12 && $hora < 18) {
-            echo '<h4 style="color: blue; font-weight: bold;">Boa tarde! Bem-vindo(a)</h4>';
+            echo '<h4 style="color: blue; font-weight: bold;">Boa tarde! Bem-vindo(a)⛅</h4>';
         } else {
-            echo '<h4 style="color: blue; font-weight: bold;">Boa noite! Bem-vindo(a)</h4>';
+            echo '<h4 style="color: blue; font-weight: bold;">Boa noite! Bem-vindo(a)🌃</h4>';
         }
     ?>
 </div>
