@@ -85,7 +85,8 @@ if ($filtro !== "") {
     <div class="row">
         <?php 
         if (empty($receitas)) {
-            echo '<p class="text-muted">Nenhuma receita cadastrada no momento.</p>';
+            echo '<p class="text-muted">Nenhuma receita cadastrada no momento.<br>
+            Para cadastrar uma receita faça o login! </p>';
         } else {
             foreach ($receitas as $r) {
                 echo '<div class="col-md-4 mb-4">';
